@@ -4,7 +4,7 @@ const movieRoutes = require("./routes")
 const bodyParser = require("body-parser")
 const dotenv = require('dotenv')
 const cors = require('cors')
-mongoose.connect('mongodb+srv://dbAdmin:p5UoCrjcL8Fw394z@watchlydb.cyhzd.mongodb.net/watchly?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true  })
+mongoose.connect(process.env.MONGODB_STRING, { useNewUrlParser: true, useUnifiedTopology: true  })
 .then(() => {
     dotenv.config()
     const app = express()
