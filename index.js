@@ -12,9 +12,6 @@ mongoose.connect(process.env.MONGODB_STRING, { useNewUrlParser: true, useUnified
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(express.static("public"));
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "public", "index.html"));
-    });
     app.use("/api", movieRoutes)
     app.listen(process.env.PORT || 3000, () => {
         console.log("Server has started")
